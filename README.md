@@ -27,9 +27,9 @@ Options:
 ## Keys
 
 ```
-controls    - ←                     unselect
-            - ↓↑                    next, previous
-            - <Shift> + ↓↑          Go fast
-            - <Shift+Ctrl> + ↓↑     Go more faster
-            - PageUp | PageDown     Go super fast
+controls    - ←                             unselect
+            - ↓↑ | scroll                   next, previous
+            - <Shift> + ↓↑ | scroll         Go fast
+            - <Shift+Ctrl> + ↓↑ | scroll    Go more faster
+            - PageUp | PageDown             Go super fast
 ```
