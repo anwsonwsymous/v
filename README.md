@@ -32,4 +32,5 @@ controls    - ← | Esc                       unselect
             - <Shift> + ↓↑ | scroll         Go fast
             - <Shift+Ctrl> + ↓↑ | scroll    Go faster
             - PageUp | PageDown             Go super fast
+            - q | Q                         Exit
 ```
