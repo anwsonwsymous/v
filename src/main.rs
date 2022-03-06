@@ -1,13 +1,9 @@
-extern crate crossterm;
-extern crate tui;
-
 use argh::FromArgs;
 
-mod ui;
 mod app;
-mod terminal;
 mod file_reader;
-
+mod terminal;
+mod ui;
 
 /// View csv files in table view (not only csv files)
 #[derive(FromArgs)]
@@ -18,7 +14,7 @@ struct Cli {
 
     /// separator character
     #[argh(option, short = 'd', default = "','")]
-    descriptor: char,
+    delimiter: char,
 
     /// show headers in table
     #[argh(switch, short = 'h')]
@@ -31,6 +27,6 @@ fn main() {
 
     // Read file content
     // TODO: Optimize to return file size and iterator
-    let rows = file_reader::read_csv_rows(&cli.file_name, &cli.descriptor).unwrap();
+    let rows = file_reader::read_csv_rows(&cli.file_name, &cli.delimiter).unwrap();
     terminal::run(rows, cli.file_name, cli.headers);
 }

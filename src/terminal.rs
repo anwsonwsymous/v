@@ -1,24 +1,16 @@
-use tui::backend::Backend;
-use tui::Terminal;
-use std::io;
-use tui::backend::CrosstermBackend;
-use crossterm::terminal::{
-    enable_raw_mode,
-    disable_raw_mode,
-    EnterAlternateScreen,
-    LeaveAlternateScreen,
-};
-use crossterm::event::{
-    EnableMouseCapture,
-    DisableMouseCapture,
-    Event,
-    KeyCode,
-    MouseEventKind,
-    read
-};
-use crossterm::execute;
 use crate::app::*;
 use crate::ui::*;
+use crossterm::event::{
+    read, DisableMouseCapture, EnableMouseCapture, Event, KeyCode, MouseEventKind,
+};
+use crossterm::execute;
+use crossterm::terminal::{
+    disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen,
+};
+use std::io;
+use tui::backend::Backend;
+use tui::backend::CrosstermBackend;
+use tui::Terminal;
 
 pub fn run(rows: Vec<Vec<String>>, file_name: String, headers: bool) {
     // setup terminal
@@ -38,7 +30,8 @@ pub fn run(rows: Vec<Vec<String>>, file_name: String, headers: bool) {
         terminal.backend_mut(),
         LeaveAlternateScreen,
         DisableMouseCapture
-    ).unwrap();
+    )
+    .unwrap();
     terminal.show_cursor().unwrap();
 
     if let Err(err) = res {

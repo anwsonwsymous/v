@@ -11,10 +11,9 @@ pub enum ScrollMode {
 impl Into<ScrollMode> for KeyModifiers {
     fn into(self) -> ScrollMode {
         match self {
-            _m if _m.contains(KeyModifiers::CONTROL)
-                && _m.contains(KeyModifiers::SHIFT) => ScrollMode::SuperFast,
+            _m if _m.contains(KeyModifiers::CONTROL | KeyModifiers::SHIFT) => ScrollMode::SuperFast,
             _m if _m.contains(KeyModifiers::SHIFT) => ScrollMode::Fast,
-            _ => ScrollMode::Normal
+            _ => ScrollMode::Normal,
         }
     }
 }
